@@ -4,7 +4,6 @@ S -> WH[SUBCAT=wh] Aux[NUM=?n, PER=?p] NP[NUM=?n, PER=?p] VP[SUBCAT=nil, HEAD=[N
 NP[NUM=?n, PER=?p] -> ProperNoun[NUM=?n, PER=?p]
 NP[NUM=?n, PER=?p]-> Noun[NUM=?n, PER=?p]
 NP[NUM=?n, PER=?p] -> DET Noun[NUM=?n, PER=?p]
-NP[NUM=?n, PER=?p] -> DET ADJ Noun[NUM=?n, PER=?p]
 NP[NUM=?n, PER=?p] -> ADJP[NUM=?n, PER=?p] Noun[NUM=?n, PER=?p]
 NP[NUM=?n, PER=?p] -> NP[NUM=?n, PER=?p] PP[NUM=?n, PER=?p]
 NP[NUM='pl', PER=3, TENSE = 'pres'] -> ProperNoun[NUM=?n, PER=?p] CONJ ProperNoun[NUM=?n, PER=?p]
@@ -12,16 +11,16 @@ NP[NUM='pl', PER=3, TENSE = 'pres'] -> ProperNoun[NUM=?n, PER=?p] CONJ ProperNou
 VP[SUBCAT=?rest, TENSE = ?t, NUM=?n, PER=?p] -> VP[SUBCAT=[HEAD=?arg, TAIL=?rest, TENSE=?t, NUM=?n, PER=?p]] ARG[CAT=?arg, NUM=?n, PER=?p, TENSE=?t]
 VP[SUBCAT=?args, NUM=?n, TENSE = ?t, PER=?p] -> V[SUBCAT=?args, TENSE = ?t, NUM=?n, PER=?p]
 VP[SUBCAT=?rest, NUM=?n, TENSE = ?t, PER=?p] -> ADV VP[SUBCAT=[HEAD=?arg, TAIL=?rest], TENSE = ?t, NUM=?n, PER=?p]
-ADJP[SUBCAT=?rest, TENSE = ?t, NUM=?n, PER=?p] -> DET[NUM=?n] ADJ
+ADJ -> ADJ
+ADJP[SUBCAT=?rest, TENSE = ?t, NUM=?n, PER=?p] -> DET[NUM=?n] ADJ 
 ADJP[SUBCAT=?rest, TENSE = ?t, NUM=?n, PER=?p] -> DET[NUM=?n] ADJ ADJ
+ADJP[SUBCAT=?rest, TENSE = ?t, NUM=?n, PER=?p] -> ADJ ARG[CAT=?arg, NUM=?n, PER=?p, TENSE=?t]
+ADJP[SUBCAT=?rest, TENSE = ?t, NUM=?n, PER=?p] -> ADJ
 PP[NUM=?n, TENSE=?t, PER=?p] -> PREP[NUM=?n, TENSE=?t, PER=?p] NP[NUM=?n, PER=?p]
 ARG[CAT=adjunct, HEAD=[NUM=?n, PER=?p, TENSE = ?t]] -> ADJP[SUBCAT=[HEAD=[NUM=?n, PER=?p, TENSE=?t]]] 
 ARG[CAT=pp, NUM=?n, PER=?p, TENSE = ?t] -> PP[NUM=?n, PER=?p, TENSE = ?t]
 ARG[CAT=v, NUM=?n, PER=?p, TENSE = ?t] -> V[NUM=?n, PER=?p, TENSE = ?t]
 ARG[CAT=np, NUM=?n, PER=?p] -> NP[NUM = ?n, PER=?p]
-WH -> Aux
-ADJ -> ADJ
-
 
 
 V[SUBCAT= [HEAD=np, TAIL= nil, TENSE = pres, NUM='pl', PER=3]] -> 'carry'
@@ -46,6 +45,7 @@ DET -> 'the'
 ADJ -> 'grey'
 ADJ -> 'heavy'
 ADJ -> 'large'
+ADJ -> 'black'
 ADV -> 'always'
 ProperNoun[NUM='sg', PER = 3] -> 'Stan'
 ProperNoun[NUM='sg', PER = 3] -> 'Ollie'
